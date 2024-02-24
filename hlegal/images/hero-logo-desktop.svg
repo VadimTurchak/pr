@@ -1,0 +1,18 @@
+<svg width="872.340332" height="1000.000000" viewBox="0 0 872.34 1000" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip22728_11351">
+			<rect id="Assets / Symbol" width="872.340454" height="1000.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+		<linearGradient id="paint_linear_19_590_0" x1="653.095215" y1="999.998169" x2="320.507660" y2="660.623047" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#F0145A"/>
+			<stop offset="1.000000" stop-color="#693264"/>
+		</linearGradient>
+	</defs>
+	<g clip-path="url(#clip22728_11351)">
+		<path id="Union" d="M306.774 425.531L540.779 425.531C608.001 425.531 664.103 454.207 698.986 502.666C733.843 551.125 734.918 631.984 714.591 695.24L688.603 775.998C677.75 809.719 626.932 969.189 617.021 1000L489.361 1000C489.361 1000 491.313 1001.71 597.956 670.213C607.372 640.959 612.748 593.473 597.956 572.936C583.189 552.402 558.273 540.25 525.304 540.25L334.024 540.25C296.466 540.25 263.182 564.678 251.563 600.758L306.774 425.531Z" fill="url(#paint_linear_19_590_0)" fill-opacity="1.000000" fill-rule="evenodd"/>
+		<path id="Union" d="M124.336 1000L-0.462402 1000C105.755 666.469 213.178 333.33 320.022 0L444.65 0C444.125 1.66797 443.593 3.33789 443.053 5.01367C270.17 536.959 329.143 357.318 124.336 1000Z" fill="#F0145A" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+</svg>

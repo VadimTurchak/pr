@@ -1,0 +1,894 @@
+@use "librery";
+@import url(../fonts/fonts.css);
+@import url(./normalize.css);
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    max-width: 1600px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-background {
+    background: linear-gradient(208.37deg, rgb(50, 50, 100) 0.804%,
+    rgb(50, 50, 100) 59.712%,rgb(100, 62, 114) 99.155%);
+}
+
+.hero {
+    background-image: url('../images/hero-logo-mobil.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+
+    header {
+        position: static;
+        z-index: 1;
+        left: 0;
+        right: 0;
+    
+        .header-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+            "contacts contacts"
+            "logo nav";
+    
+            .header-contacts {
+                padding: 10px 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: rgba(245, 245, 250, 0.2);
+                grid-area: contacts;
+                
+                p {
+                    @include librery.defaultFont(16px, 20px, 400, #B3B3BA);
+                    display: none;
+    
+                    &::before {
+                        content: '';
+                        display: block;
+                        width: 6px;
+                        height: 6px;
+                        background-color: #E6E6F0;
+                        border-radius: 50%;
+                    }
+                }
+    
+                a {
+                    @include librery.defaultFont(16px, 20px, 700, #FFF);
+                    @include librery.linkDecor;
+    
+                    &::before {
+                        content: '';
+                        display: none;
+                        width: 6px;
+                        height: 6px;
+                        background-color: #E6E6F0;
+                        border-radius: 50%;
+                    }
+                }
+                .header-facebook {
+                    display: none;
+    
+                    &::before {
+                        content: '';
+                        display: block;
+                        width: 6px;
+                        height: 6px;
+                        background-color: #E6E6F0;
+                        border-radius: 50%;
+                    }
+                    svg:hover {
+                        path {
+                            fill: #F0145A;
+                        }
+                    }
+                }
+                .header-button {
+                    input {
+                        display: none;
+                    }
+                    input:checked + .lang-button {
+                        background-color: #F0145A;
+                        border-radius: 8px;
+                    }
+                    label {
+                        @include librery.defaultFont(12px, 15px, 700, #FFF);
+                        padding: 5px 7px; 
+                    }
+                }
+            }
+            .header-logo {
+                display: flex;
+                grid-area: logo;
+                padding-left: 15px;
+    
+                .tablet {
+                    display: none;
+                }
+            }
+            .header-nav {
+                grid-area: nav;
+                padding-right: 15px;
+                padding-top: 15px;
+                
+                span {
+                    display: block;
+                    width: 18px;
+                    height: 2px;  
+                    background-color: #FFF;
+                    margin-bottom: 4px;
+                }
+                span:last-child {
+                    margin-bottom: 0;
+                }
+                nav {
+                    padding-left: 15px;
+                    display: none;
+                    a {
+                        @include librery.defaultFont(16px, 20px, 700, #FFF);
+                        text-decoration: none;
+                        margin-right: 15px;
+                    }
+                    a:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .hero-title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        h1 {
+            @include librery.defaultFont(38px, 46px, 700, #FFF);
+            text-align: center;
+        }
+    }
+
+    .hero-arrow {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 2px solid rgb(255, 255, 255);
+        position: absolute;
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%, -50%);
+        bottom: 15px;
+        background-image: url('../images/arrow-white.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+.description {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    .category {
+        display: flex;
+        flex-direction: column;
+
+        .title-description {
+            display: flex;
+            flex-direction: row;
+            overflow: scroll;
+            white-space: nowrap;
+
+            h2 {
+                @include librery.defaultFont(30px, 37px, 700, #B3B3BA);
+                margin-right: 30px;
+                margin-left: 30px;
+
+            }
+            .active {
+                @include librery.colorGradient;
+            }
+            h2:hover {
+                color: #F0145A;
+            }
+        }
+        .line {
+            width: 100%;
+            height: 4px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+
+            span {
+                width: 100%;
+                height: 4px;
+                display: block;
+                background-color: rgba(255, 255, 255, 0.3); 
+            }
+        }
+        .category-description {
+            padding-left: 30px;
+            padding-right: 30px;
+
+            h2 {
+                @include librery.defaultFont(20px, 24px, 700, #FFF);
+                margin-bottom: 30px;
+            }
+            p {
+                @include librery.defaultFont(19px, 30px, 400, #FFF);
+            }
+        }
+    }
+}
+
+.services {
+    padding-top: 30px;
+    padding-bottom: 60px;
+    position: relative;
+
+    &::before {
+        content: '';
+        @include librery.shadow(#CACADB, 20px, 20px);
+        top: 100%;
+    }
+    &::after {
+        content: '';
+        @include librery.shadow(#E7E7F2, 40px, 40px);
+        top: calc(100% + 10px);
+    }
+
+    .services-wrap {
+        a {
+            @include librery.defaultFont(14px, 17px, 700, #24A3FF);
+            @include librery.linkDecor;
+            text-align: left;
+
+            &:hover {
+                color: #F0145A;
+
+                svg {
+                    path {
+                        stroke: #F0145A;
+                    }
+                }
+            }
+        }
+
+        .services-title {
+            margin-bottom: 30px;
+            margin-top: 10px;
+
+            h2 {
+                @include librery.defaultFont(30px, 37px, 700, inherit);
+                @include librery.colorGradient;
+            }
+        }
+        .services-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+
+            .card {
+                display: flex;
+                flex-direction: column;
+
+                
+                .card-logo {
+                    background-color: #FFF;
+                    width: 92px;
+                    height: 92px;
+                    border-radius: 24px;
+                    margin-bottom: 30px;
+                    padding: 14px;
+                }
+                .card-description {
+                    h3 {
+                        @include librery.defaultFont(22px, 27px, 700, #24A3FF);
+                        margin-bottom: 15px
+                    }
+                    p {
+                        @include librery.defaultFont(16px, 26px, 400, #FFF);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.team {
+    padding-top: 60px;
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px 12px 0px 0px;
+            object-fit: cover;
+        }
+
+        .team-description {
+            padding: 30px;
+            background-color: #EDEDF7;
+
+            h2 {
+                @include librery.defaultFont(30px, 37px, 700, inherit);
+                @include librery.colorGradient;
+                margin-bottom: 30px
+            }
+            h4 {
+                @include librery.defaultFont(16px, 20px, 700, #B3B3BA);
+                margin-bottom: 5px;
+            }
+            a {
+                @include librery.defaultFont(14px, 17px, 700, #24A3FF);
+                @include librery.linkDecor;
+                text-align: left;
+                margin-bottom: 5px;
+            }
+            a::after {
+                content: url("../images/arrow-right.svg");
+                margin-left: 3px;
+            }
+            p {
+                @include librery.defaultFont(14px, 22px, 400, #B3B3BA);
+            }
+        }
+    }
+    .slider {
+        display: flex;
+        justify-content: center;
+        column-gap: 15px;
+        padding-top: 30px;
+
+        .slide {
+            background-color: #EDEDF7;
+            width: 16px;
+            height: 16px;
+            border-radius: 10px;
+            border: none;
+        }
+        .active {
+            background-color: #006CCF;
+        }
+    }
+}
+
+.companies {
+    margin-top: 60px;
+    .companies-wrap {
+        h3 {
+            @include librery.defaultFont(14px, 17px, 700, #323264);
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .companies-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(6, 120px);
+            padding-top: 30px;
+
+            .companies-card {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .companies-card:nth-child(n + 7) {
+                display: none;
+            }
+        }
+    }
+}
+
+.publications {
+    background-color: #F5F5FA;
+    padding-top: 60px;
+    .publications-container {
+        a {
+            @include librery.defaultFont(14px, 17px, 700, #24A3FF);
+            @include librery.linkDecor;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+        a::after {
+            content: url("../images/arrow-right.svg");
+            margin-left: 3px;
+        }
+        h2 {
+            @include librery.defaultFont(30px, 37px, 700, inherit);
+            @include librery.colorGradient;
+        }
+        .news-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-top: 30px;
+
+            .news-card {
+                background-color: #FFF;
+
+                img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                }
+                .card-description {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 15px;
+                    padding: 30px;
+
+                    h4 {
+                        @include librery.defaultFont(16px, 20px, 700, #24A3FF);
+                    }
+                    time {
+                        @include librery.defaultFont(12px, 15px, 700, #B3B3BA);
+                    }
+                    p {
+                        @include librery.defaultFont(14px, 22px, 400, #000000);
+                    }
+                    .line {
+                        background-color: #E6E6F0;
+                        height: 4px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+footer {
+    background-color: #F5F5FA;
+    padding-top: 30px;
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    
+        .line {
+            background-color: #E6E6F0;
+            width: 100%;
+            height: 2px;
+        }
+        .street {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+            gap: 10px;
+    
+            h4 {
+                @include librery.defaultFont(16px, 20px, 400, #323264);
+            }
+            span {
+                @include librery.defaultFont(12px, 15px, 700, #24A3FF);
+            }
+        }
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+    
+            .email {
+                @include librery.defaultFont(16px, 20px, 700, #24A3FF);
+
+                &:hover {
+                    color: #F0145A;
+                } 
+            }
+            svg {
+                width: 38px;
+                height: 38px;
+
+                &:hover path {
+                    fill: #F0145A;
+                }
+            }
+            a {
+                @include librery.defaultFont(16px, 20px, 700, #24A3FF);
+                @include librery.linkDecor;
+            }
+        }
+        .copy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+    
+            p {
+                @include librery.defaultFont(16px, 20px, 400, #B3B3BA);
+            }
+        }
+    }
+}
+
+@media (min-width: librery.$tablet) {
+    .wrapper {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .hero {    
+        background-image: url('../images/hero-logo-tablet.svg');
+
+        header {
+            padding: 50px 60px;
+    
+            .header-container {
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                "contacts contacts"
+                "logo ."
+                'nav .';
+        
+                .header-contacts {
+                    justify-content: flex-start;
+                    background-color: inherit;
+                    gap: 6px;
+    
+                    p {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                    }
+                    a {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+    
+                        &::before {
+                            display: block;
+                        }
+                    }
+                    .header-facebook {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                    }
+                }
+                .header-logo {
+                    .tablet {
+                        display: block;
+                    }
+                    .mobil {
+                        display: none;
+                    }
+                }
+                .header-nav {
+                    span {
+                        display: none;
+                    }
+                    nav {
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        .hero-title {
+            width: 800px
+        }
+    }
+    .description {
+        .category {
+            .title-description {
+                h2 {
+                    @include librery.defaultFont(38px, 47px, 700, #B3B3BA);
+                    margin-right: 30px;
+                }
+            }
+            .line {
+                padding-left: 60px;
+                padding-right: 60px;
+            }
+            .category-description {
+                padding-left: 60px;
+                padding-right: 60px;
+                h2 {
+                    @include librery.defaultFont(30px, 37px, 700, #FFF);
+                    margin-bottom: 30px
+                }
+
+            }
+        }
+    }
+    .services {
+        .services-wrap {
+            .services-title {
+                h2 {
+                    @include librery.defaultFont(38px, 46px, 700, inherit);
+                }
+            }
+            .services-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+
+    .team {
+        .container {
+            .team-description {
+                h2 {
+                    @include librery.defaultFont(38px, 46px, 700, inherit);
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+
+    .companies {
+        .companies-wrap {
+            .companies-cards {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(4, 120px);
+
+                .companies-card:nth-child(n + 7) {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    .publications {
+        .publications-container {
+            h2 {
+                @include librery.defaultFont(38px, 46px, 700, inherit);
+            }
+            .news-cards {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: 
+                "news-1 news-2"
+                "news-3 news-3";
+                column-gap: 30px;
+
+                .news1 {
+                    grid-area: news-1;
+                }
+                .news2 {
+                    grid-area: news-2;
+                }
+                .news3 {
+                    grid-area: news-3;
+                }
+            }
+        }
+    }
+
+    footer {
+        padding-top: 60px;
+
+        .footer-container {
+            padding-bottom: 30px;
+            grid-template-areas: 
+            "line line"
+            "street copy"
+            "contacts contacts";
+    
+            .line {
+                grid-area: line;
+            }
+            .street {
+                flex-direction: row;
+                grid-area: street;
+    
+                span::before {
+                    content: "";
+                    display: inline-block;
+                    background-color: #B3B3BA;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 3px;
+                    margin-right: 10px;
+                }
+            }
+            .contacts {
+                flex-direction: row;
+                grid-area: contacts;
+    
+                a::before {
+                    content: "";
+                    display: inline-block;
+                    background-color: #B3B3BA;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 3px;
+                    margin-right: 10px;
+                }
+            }
+            .copy {
+                margin-bottom: 0;
+                grid-area: copy;
+            }
+        }
+    }
+}
+
+@media (min-width: librery.$notebook) {
+    .hero {
+        background-image: url('../images/hero-logo-notebook.svg');
+
+        header {
+            padding: 50px 60px;
+    
+            .header-container {
+                grid-template-areas: 
+                "logo contacts"
+                ". nav";
+        
+                .header-logo {
+                    align-items: center;
+                    grid-row-start: 1;
+                    grid-row-end: 3;
+    
+                    .mobil {
+                        display: none;
+                    }
+                    .tablet {
+                        display: block;
+                    }
+                }
+                .header-nav {
+                    padding-top: 0;
+                    nav {
+                        justify-content: flex-end;
+                    }
+                }
+            }
+        }
+    }
+    .description {
+        .category {
+            flex-direction: row;
+            align-items: center;
+            
+            .title-description {
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 30px;
+                overflow: inherit;
+                padding-left: 60px;
+
+                h2 {
+                    margin-right: 0;
+                }
+            }
+            .line {
+                width: 5px;
+                height: 270px;
+                margin-left: 60px;
+                margin-right: 50px;
+                margin-bottom: 0;
+                margin-top: 0;
+                padding-left: 0;
+                padding-right: 0;
+    
+                span {
+                    width: 4px;
+                    height: 100%;
+                }
+            }
+            .category-description {
+                padding-left: 0;
+            }
+        }
+    }
+
+    .services {
+        .services-wrap {
+            .services-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+
+    .team {
+        .container {
+            grid-template-columns: 1fr 1fr;
+
+            img {
+                border-radius: 12px 0px 0px 12px;
+            }
+
+            .team-description {
+                h2 {
+                    @include librery.defaultFont(38px, 46px, 700, inherit);
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+
+    .companies {
+        .companies-wrap {
+            .companies-cards {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(3, 120px);
+            }
+        }
+    }
+    .publications {
+        .publications-container {
+            h2 {
+                @include librery.defaultFont(38px, 46px, 700, inherit);
+            }
+            .news-cards {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-areas: 
+                "news-1 news-2 news-3";
+            }
+        }
+    }
+}
+
+@media (min-width: librery.$notebookHd) {
+    .hero {
+        background-size: contain;
+    }
+    .team {
+        .container {
+            grid-template-columns: 400px 2fr;
+            img {
+                max-width: 400px;
+                max-height: 344px;
+            }
+        }
+    }
+    .description {
+        .category {
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+    }
+}
+@media (min-width: librery.$desktop) {
+    .wrapper {
+        padding-left: 160px;
+        padding-right: 160px;
+    }
+    .hero {
+        background-image: url('../images/hero-logo-desktop.svg');
+    }
+    .description {
+        .category {
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 160px;
+            padding-right: 160px;
+        }
+    }
+    .team {
+        .container {
+            grid-template-columns: 1fr 3fr;
+            img {
+                max-height: 298px;
+            }
+        }
+    }
+    .companies {
+        .companies-wrap {
+            .companies-cards {
+                max-width: 1720px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 100px;
+                padding-right: 100px;
+            }
+        }
+    }
+}
